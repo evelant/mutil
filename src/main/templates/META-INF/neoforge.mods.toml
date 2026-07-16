@@ -9,13 +9,10 @@ displayName="${mod_name}"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
-[[accessTransformers]]
-file="META-INF/accesstransformer.cfg"
-
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"
-    versionRange="${neo_version_range}"
+    versionRange="[${neo_version},)"
     ordering="NONE"
     side="BOTH"
 

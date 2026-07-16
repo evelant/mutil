@@ -17,7 +17,7 @@ public class Perks {
     private static volatile Data data;
 
     public static void init(String uuid) {
-        if (!ConfigHandler.client.queryPerks.get()) {
+        if (!ConfigHandler.QUERY_PERKS.get()) {
             logger.info("Perks query disabled, skipping fetch!");
             data = new Data();
             return;
@@ -34,7 +34,7 @@ public class Perks {
                     .thenAccept(Perks::setData)
                     .get();
         } catch (URISyntaxException | ExecutionException | InterruptedException e) {
-            logger.warn("Failed to get perk data: " + e.getMessage());
+            logger.warn("Failed to get perk data: {}", e.getMessage());
             data = new Data();
         }
     }
